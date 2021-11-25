@@ -1,0 +1,23 @@
+# Using official ubuntu image as a parent image
+FROM ubuntu:latest
+
+# Setting the working directory to /app
+WORKDIR /app
+
+# Copy the current directory contents into the container at /app
+COPY app/helloworld.py /app/
+
+# Getting the updates for Ubuntu
+RUN apt-get -y update && apt-get install sudo
+# Install python3.8 into our environment
+RUN apt-get install -y python3.8
+
+# add a non-root user 'bootcamp'
+RUN useradd -rm -d /home/bootcamp -s /bin/bash -g root -G sudo -u 1001 bootcamp
+RUN echo 'bootcamp:bootcamp' | chpasswd
+USER bootcamp
+WORKDIR /home/bootcamp
+RUN echo "alias python=python3.8" >> /home/bootcamp/.bashrc
+
+# Run app.py when the container launches
+CMD ["python3.8", "/app/helloworld.py"]
