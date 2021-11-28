@@ -1,0 +1,30 @@
+version: '2.2'
+services:
+  restapi:
+    build: 
+      context: .
+      dockerfile: Dockerfile_RestAPI.txt
+    ports:
+      - '5000:5000'
+    volumes:
+      - .:/code
+    environment:
+      FLASK_ENV: development
+    container_name: bootcamp_restapi
+  mysql:
+    image: 'brianjrmo/bootcamp:mysql'
+    container_name: bootcamp_mysql
+    depends_on:
+      - restapi
+  airflow:
+    image: 'brianjrmo/bootcamp:airflow'
+    container_name: bootcamp_airflow
+    restart: always
+    depends_on:
+      - mysql
+    ports:
+      - '8080:8080'
+    entrypoint: sh -x /app/start_webserver_scheduler.sh
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs

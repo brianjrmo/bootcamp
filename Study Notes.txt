@@ -26,23 +26,58 @@ sudo apt install python3.8
 echo 'alias python=python3' >> ~/.bashrc
 source ~/.bashrc
 # exit
-docker ps –l
-docker commit 7e20d89ce838 ubuntu:bootcamp
-docker images
-docker run -it ubuntu:bootcamp
+sudo docker ps -l
+sudo docker commit 7e20d89ce838 ubuntu:bootcamp
+sudo docker images
+sudo docker run -it ubuntu:bootcamp
 # exit
 
 # remove
-docker container ls -a
-docker container rm 6cc52bedabba 43f47fcb9b91
-docker image rm -f <image_id1> <image_id2> ... <image_idn>
-
+sudo docker container ls -a
+sudo docker container rm 6cc52bedabba 43f47fcb9b91
+sudo docker image rm -f <image_id1> <image_id2> ... <image_idn>
+#-----------------------------------------------------------
+# build MySQL image from mysql/mysql-server
+#-----------------------------------------------------------
+#https://phoenixnap.com/kb/mysql-docker-container
+sudo docker pull mysql/mysql-server:latest
+sudo docker run --name=bootcamp_mysql --env="MYSQL_ROOT_PASSWORD=bootcamp" --restart on-failure -d mysql/mysql-server
+sudo docker exec -i bootcamp_mysql mysql -uroot -pbootcamp <<< "CREATE USER 'bootcamp'@'%' IDENTIFIED BY 'bootcamp';"
+sudo docker exec -i bootcamp_mysql mysql -uroot -pbootcamp <<< "GRANT ALL PRIVILEGES ON *.* TO 'bootcamp'@'%';"
+#
+# find out active container to commit
+sudo docker ps
+sudo docker commit <container-id> mysql/mysql-server
+sudo docker tag mysql/mysql-server brianjrmo/bootcamp:mysql
+sudo docker push brianjrmo/bootcamp:mysql
+#
+sudo docker logs bootcamp_mysql
+sudo docker exec -it bootcamp_mysql mysql -uroot -p
+sudo docker exec -it bootcamp_mysql bash
+sudo docker stop/start/restart/rm bootcamp_mysql
 #-----------------------------------------------------------
 # build RestAPI image from dockerfile
 #-----------------------------------------------------------
-docker build -t bootcamp:restapi -f Dockerfile_RestAPI.txt .
-docker tag bootcamp:restapi brianjrmo/bootcamp:restapi
-# run docker
-docker run -it bootcamp:restapi
-# login to docker
-docker run -it bootcamp:restapi bash
+sudo docker build -t brianjrmo/bootcamp:restapi -f Dockerfile_RestAPI.txt .
+sudo docker login brianjrmo
+sudo docker push brianjrmo/bootcamp:restapi
+# run container
+sudo docker run -it brianjrmo/bootcamp:restapi
+# login to container
+sudo docker run --name=bootcamp_restapi -it brianjrmo/bootcamp:restapi bash
+mysql -h bootcamp_mysql -uroot -p
+
+#-----------------------------------------------------------
+# build Airflow image from dockerfile
+#-----------------------------------------------------------
+#https://towardsdatascience.com/master-apache-airflow-how-to-install-and-setup-the-environment-in-10-minutes-61dad52d5239
+sudo docker build -t brianjrmo/bootcamp:airflow -f Dockerfile_Airflow.txt .
+sudo docker exec -it brianjrmo/bootcamp:airflow bash
+#update logs & dags in /home/bootcamp/airflow/airflow.cfg
+
+#-----------------------------------------------------------
+# run docker-compose
+#-----------------------------------------------------------
+sudo docker stop bootcamp_restapi bootcamp_mysql bootcamp_airflow_webserver bootcamp_airflow_scheduler
+sudo docker rm bootcamp_restapi bootcamp_mysql bootcamp_airflow_webserver bootcamp_airflow_scheduler
+sudo docker-compose up -d
