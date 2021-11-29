@@ -1,30 +1,14 @@
 <h1>This is for bootcamp activities</h1>
 
 <h2>1. RestAPI</h2>
-Dockerfile: Dockerfile_RestAPI.txt
+<a href="https://hub.docker.com/layers/179264454/brianjrmo/bootcamp/restapi/images/sha256-831ebd225033089a0bbf19b9ce6a4a6192bbb10c26b529a3fe9ae953adbb7af6?context=repo">brianjrmo/bootcamp:restapi</a>
 <br>
-build command: 
-<br>
-docker build -t bootcamp:restapi -f Dockerfile_RestAPI.txt .
-<br>
-image link: https://hub.docker.com/layers/179264454/brianjrmo/bootcamp/restapi/images/sha256-03fa256cc0332b9c1099ae2e860de39a5bf79f6f3e5b4a659413644bb7f9e1e8?context=repo
-<br>
-
-
 <h2>2. MySQL</h2>
-sudo docker pull mysql/mysql-server:latest
-<br>
-sudo docker run --name=bootcamp_mysql --env="MYSQL_ROOT_PASSWORD=bootcamp" --restart on-failure -d mysql/mysql-server
-<br>
-sudo docker exec -i bootcamp_mysql mysql -uroot -pbootcamp <<< "CREATE USER 'bootcamp'@'%' IDENTIFIED BY 'bootcamp';"
-<br>
-sudo docker exec -i bootcamp_mysql mysql -uroot -pbootcamp <<< "GRANT ALL PRIVILEGES ON *.* TO 'bootcamp'@'%';"
-<br>
-sudo docker tag mysql/mysql-server brianjrmo/bootcamp:mysql
+<a href="https://hub.docker.com/layers/179423976/brianjrmo/bootcamp/mysql/images/sha256-d5f8c8425dc7f6d4dc0147d14535eaa0c51d603bf6cd191cdbe5f687519caad8?context=repo">brianjrmo/bootcamp:mysql</a>
 
+<br>
 <h2>3. Airflow</h2>
+<a href="https://hub.docker.com/layers/179554909/brianjrmo/bootcamp/airflow/images/sha256-2b5cfd8629693ecd49c1f7f8cd6e41cdb55b574dd4d0a4fe834d75504f6c07f7?context=repo">brianjrmo/bootcamp:airflow</a>
 <br>
-docker build -t bootcamp:restapi -f Dockerfile_Airflow.txt .
-
 <h2>4. Composer</h2>
 docker-composer up
