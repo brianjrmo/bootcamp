@@ -11,5 +11,4 @@
 <a href="https://hub.docker.com/layers/179554909/brianjrmo/bootcamp/airflow/images/sha256-2b5cfd8629693ecd49c1f7f8cd6e41cdb55b574dd4d0a4fe834d75504f6c07f7?context=repo">brianjrmo/bootcamp:airflow</a>
 <br>
 <h2>4. Composer</h2>
-docker-composer up
 <a href="https://github.com/brianjrmo/bootcamp/blob/main/docker-compose.yaml">docker-compose.yaml</a>
