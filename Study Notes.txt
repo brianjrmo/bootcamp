@@ -44,6 +44,10 @@ sudo docker pull mysql/mysql-server:latest
 sudo docker run --name=bootcamp_mysql --env="MYSQL_ROOT_PASSWORD=bootcamp" --restart on-failure -d mysql/mysql-server
 sudo docker exec -i bootcamp_mysql mysql -uroot -pbootcamp <<< "CREATE USER 'bootcamp'@'%' IDENTIFIED BY 'bootcamp';"
 sudo docker exec -i bootcamp_mysql mysql -uroot -pbootcamp <<< "GRANT ALL PRIVILEGES ON *.* TO 'bootcamp'@'%';"
+sudo docker exec -i bootcamp_mysql mysql -ubootcamp -pbootcamp <<< "CREATE table mysql.usertable (id int, name varchar(50), status varchar(50), last_action datetime);"
+sudo docker exec -i bootcamp_mysql mysql -ubootcamp -pbootcamp <<< "INSERT INTO mysql.usertable VALUE(1,'Carol', 'LOGIN', '2021-11-15 00:00:01');"
+sudo docker exec -i bootcamp_mysql mysql -ubootcamp -pbootcamp <<< "INSERT INTO mysql.usertable VALUE(2,'Mani', 'LOGOFF', '2021-10-15 01:00:01');"
+sudo docker exec -i bootcamp_mysql mysql -ubootcamp -pbootcamp <<< "INSERT INTO mysql.usertable VALUE(3,'Zoe', 'DELETED', '2002-04-15 12:00:01');"
 #
 # find out active container to commit
 sudo docker ps
@@ -64,8 +68,7 @@ sudo docker push brianjrmo/bootcamp:restapi
 # run container
 sudo docker run -it brianjrmo/bootcamp:restapi
 # login to container
-sudo docker run --name=bootcamp_restapi -it brianjrmo/bootcamp:restapi bash
-mysql -h bootcamp_mysql -uroot -p
+sudo docker exec -it bootcamp_restapi bash
 
 #-----------------------------------------------------------
 # build Airflow image from dockerfile
@@ -81,3 +84,8 @@ sudo docker exec -it brianjrmo/bootcamp:airflow bash
 sudo docker stop bootcamp_restapi bootcamp_mysql bootcamp_airflow_webserver bootcamp_airflow_scheduler
 sudo docker rm bootcamp_restapi bootcamp_mysql bootcamp_airflow_webserver bootcamp_airflow_scheduler
 sudo docker-compose up -d
+
+#-----------------------------------------------------------
+# clean up
+#-----------------------------------------------------------
+sudo docker rm `sudo docker ps -l | grep 'ago' | cut -c 1-12`; sudo docker ps -l

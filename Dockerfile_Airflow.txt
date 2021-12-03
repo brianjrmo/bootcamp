@@ -5,7 +5,7 @@ FROM ubuntu:latest
 WORKDIR /app
 
 # Copy the current directory contents into the container at /app
-COPY start_webserver_scheduler.sh /app/
+COPY scripts/airflow/start_webserver_scheduler.sh /app/
 
 # Getting the updates for Ubuntu
 ARG DEBIAN_FRONTEND=noninteractive
@@ -18,10 +18,13 @@ RUN apt-get install -y iproute2
 RUN apt-get install -y mysql-client
 RUN apt-get install -y python3.8
 RUN apt-get install -y python3-pip
+RUN apt-get install -y libmysqlclient-dev
 
 # install airflow
 RUN chmod 777 -R /opt
 ENV AIRFLOW_HOME=/opt/airflow
+RUN pip install mysql-connector-python
+RUN pip install -U apache-airflow-providers-mysql
 RUN pip install "apache-airflow==2.0.2" --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.0.2/constraints-3.8.txt"
 
 # add a non-root user 'bootcamp'
