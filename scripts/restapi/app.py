@@ -1,36 +1,47 @@
-from user_management import User_Management
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Dec  4 10:26:23 2021
+
+@author: brian
+"""
 from flask import Flask
 from flask import request
+from user_management import UserManagement
 
-app = Flask(__name__)
-um = User_Management('config.json')
+APP = Flask(__name__)
+UM = UserManagement('config.json')
 
-@app.route('/')
+@APP.route('/')
 def count():
-    return um.count()
+    '''to check number of active user'''
+    return UM.count()
 
-@app.route('/find', methods=['GET'])
+@APP.route('/find', methods=['GET'])
 def find():
+    '''to find an active user by name'''
     name = request.args.get('username')
-    return um.find(name)
+    return UM.find(name)
 
-@app.route('/add', methods=['GET'])
+@APP.route('/add', methods=['GET'])
 def add():
+    '''to add a user'''
     name = request.args.get('username')
-    return um.add(name)
+    return UM.add(name)
 
-@app.route('/delete', methods=['GET'])
+@APP.route('/delete', methods=['GET'])
 def delete():
+    '''to delete a user by name'''
     name = request.args.get('username')
-    return um.set_status(name,'DELETED')
-    
-@app.route('/login', methods=['GET'])
-def login():
-    name = request.args.get('username')
-    return um.set_status(name,'LOGON')
-    
-@app.route('/logoff', methods=['GET'])
-def logout():
-    name = request.args.get('username')
-    return um.set_status(name,'LOGOFF')
+    return UM.set_status(name, 'DELETED')
 
+@APP.route('/login', methods=['GET'])
+def login():
+    '''to login with a user'''
+    name = request.args.get('username')
+    return UM.set_status(name, 'LOGON')
+
+@APP.route('/logoff', methods=['GET'])
+def logout():
+    '''to logout with a user'''
+    name = request.args.get('username')
+    return UM.set_status(name, 'LOGOFF')
