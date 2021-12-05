@@ -1,8 +1,0 @@
-# syntax=docker/dockerfile:1
-FROM mysql/mysql-server:latest
-
-ENV MYSQL_ROOT_PASSWORD=bootcamp
-
-RUN mysql -uroot -pbootcamp <<< "CREATE USER 'bootcamp'@'%' IDENTIFIED BY 'bootcamp';"
-RUN mysql -uroot -pbootcamp <<< "GRANT ALL PRIVILEGES ON *.* TO 'bootcamp'@'%';"
-RUN mysql -ubootcamp -pbootcamp <<< "CREATE table mysql.usertable (id int, name varchar(50), status varchar(50), last_action datetime);"

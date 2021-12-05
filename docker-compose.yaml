@@ -12,7 +12,6 @@ services:
       FLASK_ENV: development
     container_name: bootcamp_restapi
   mysql:
-#    image: 'brianjrmo/bootcamp:mysql'
     image: 'mysql/mysql-server:latest'
     container_name: bootcamp_mysql
     depends_on:
