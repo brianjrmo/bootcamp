@@ -38,32 +38,32 @@ API list:
   </tr>
   <tr>
     <td>Find user by name</td>
-    <td>http://(domain):(port)/find?username=<name></td>
+    <td>http://(domain):(port)/find?username=(name)</td>
     <td>User found.</td>
     <td>User not found.</td>
   </tr>
   <tr>
     <td>Add a user</td>
-    <td>http://(domain):(port)/add?username=<name></td>
-    <td>User <name> added</td>
+    <td>http://(domain):(port)/add?username=(name)</td>
+    <td>User (name) added</td>
     <td>User already exist.</td>
   </tr>
   <tr>
     <td>Delete a user</td>
-    <td>http://(domain):(port)/delete?username=<name></td>
-    <td>User <name> DELETED</td>
+    <td>http://(domain):(port)/delete?username=(name)</td>
+    <td>User (name) DELETED</td>
     <td>User not exist.</td>
   </tr>
   <tr>
     <td>User login</td>
-    <td>http://(domain):(port)/login?username=<name></td>
-    <td>User <name> LOGON</td>
+    <td>http://(domain):(port)/login?username=(name)</td>
+    <td>User (name) LOGON</td>
     <td>User not exist.</td>
   </tr>
   <tr>
     <td>User logoff</td>
-    <td>http://(domain):(port)/logoff?username=<name></td>
-    <td>User <name> LOGOFF</td>
+    <td>http://(domain):(port)/logoff?username=(name)</td>
+    <td>User (name) LOGOFF</td>
     <td>User not exist.</td>
   </tr>
 </table>
