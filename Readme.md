@@ -20,7 +20,7 @@ The table records all users which have ever been created. 'DELETED' user still r
 Active(non-deleted) users are unique, we can not create a user with same name as existing active user.
 <br>
 <h3>2.2 RESTful API</h3>
-RESTful API provide operations on individual user, this implement functionality from 1.1 to 1.4.
+RESTful API provide operations on individual user, this implement function from 1.1 to 1.4.
 <br>
 API list:
 <table>
@@ -81,7 +81,7 @@ Airflow will map 2 volumns from host to container, host folders are:
 <br>
 - logs/ Airflow log will come to here. 
 <br>
-A DAG user_status_dag run every 5 minutes to extract up-to-date user status information from usertable. The created report(a csv file) also save in logs/ folder. This implement functionality from 1.5.
+A DAG user_status_dag run every 5 minutes to extract up-to-date user status information from usertable. The created report(a csv file) also save in logs/ folder. This implement function 1.5.
 
 <h3>2.4 Three steps to start the application</h3>
 <h4>2.4.1 Download source</h4>
