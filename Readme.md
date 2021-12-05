@@ -83,7 +83,7 @@ Airflow will map 2 volumns from host to container, host folders are:
 <br>
 A DAG user_status_dag run every 5 minutes to extract up-to-date user status information from usertable. The created report(a csv file) also save in logs/ folder.
 
-<h3>2.4 Two steps to start the application</h3>
+<h3>2.4 Three steps to start the application</h3>
 <h4>2.4.1 Download source</h4>
 Download source from https://github.com/brianjrmo/bootcamp.git
 <h4>2.4.2 Change access mode</h4>
