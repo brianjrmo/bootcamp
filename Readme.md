@@ -81,7 +81,7 @@ Airflow will map 2 volumns from host to container, host folders are:
 <br>
 - logs/ Airflow log will come to here. 
 <br>
-A DAG user_status_dag run every 5 minutes to extract up-to-date user status information from usertable. The created report(a csv file) also save in logs/ folder.
+A DAG user_status_dag run every 5 minutes to extract up-to-date user status information from usertable. The created report(a csv file) also save in logs/ folder. This implement functionality from 1.5.
 
 <h3>2.4 Three steps to start the application</h3>
 <h4>2.4.1 Download source</h4>
