@@ -84,8 +84,6 @@ start the <a href="https://github.com/brianjrmo/bootcamp/blob/main/docker-compos
 <br>
 
 <h2>3. Limitation and Rooms of improvement</h2>
-3.1 The docker-compose here is running on a single host with multipul containers. To make the application more resilian to work load changing, can apply k8s as containers orchestration.
-<br>
-3.2 Apply OpenAPI to facilate document generation.
-<br>
-3.3 The docker-compose.yaml demo 2 ways to create container: from a Dockerfile and existing image. This is for the purpose of showing 2 alternatives to start container. It's more efficient to create image first then the container can import directly.
+<h3>3.1 The docker-compose here is running on a single host with multipul containers. To make the application more resilian to work load changing, can apply k8s as containers orchestration.</h3>
+<h3>3.2 Apply OpenAPI to facilate document generation.</h3>
+<h3>3.3 The docker-compose.yaml demo 2 ways to create container: from a Dockerfile and existing image. This is for the purpose of showing 2 alternatives to start container. It's more efficient to create image first then the container can import directly.</h3>
