@@ -32,37 +32,37 @@ API list:
   </tr>
   <tr>
     <td>Get number of active users</td>
-    <td>http://(domain):(port)</td>
+    <td>http://(hostname):5000</td>
     <td>There are <n> user(s).</td>
     <td>There is no user.</td>
   </tr>
   <tr>
     <td>Find user by name</td>
-    <td>http://(domain):(port)/find?username=(name)</td>
+    <td>http://(hostname):5000/find?username=(name)</td>
     <td>User found.</td>
     <td>User not found.</td>
   </tr>
   <tr>
     <td>Add a user</td>
-    <td>http://(domain):(port)/add?username=(name)</td>
+    <td>http://(hostname):5000/add?username=(name)</td>
     <td>User (name) added</td>
     <td>User already exist.</td>
   </tr>
   <tr>
     <td>Delete a user</td>
-    <td>http://(domain):(port)/delete?username=(name)</td>
+    <td>http://(hostname):5000/delete?username=(name)</td>
     <td>User (name) DELETED</td>
     <td>User not exist.</td>
   </tr>
   <tr>
     <td>User login</td>
-    <td>http://(domain):(port)/login?username=(name)</td>
+    <td>http://(hostname):5000/login?username=(name)</td>
     <td>User (name) LOGON</td>
     <td>User not exist.</td>
   </tr>
   <tr>
     <td>User logoff</td>
-    <td>http://(domain):(port)/logoff?username=(name)</td>
+    <td>http://(hostname):5000/logoff?username=(name)</td>
     <td>User (name) LOGOFF</td>
     <td>User not exist.</td>
   </tr>
@@ -75,13 +75,26 @@ Get all files from <a href="https://github.com/brianjrmo/bootcamp/tree/main/scri
 Run this command to check usage: python manage_user.py --help
 <br>
 <h3>2.3 Airflow</h3>
-A DAG user_status_dag run every 5 minutes to extract up-to-date user status information from usertable. Create a csv file in docker host home under logs/ folder.
+Airflow will map 2 volumns from host to container, host folders are:
+<br>
+- dags/ We can put valid dags file here so that Airflow can process with.
+<br>
+- logs/ Airflow log will come to here. 
+<br>
+A DAG user_status_dag run every 5 minutes to extract up-to-date user status information from usertable. The created report(a csv file) also save in logs/ folder.
 
 <h3>2.4 Two steps to start the application</h3>
+<h4>2.4.1 Download source</h4>
 Download source from https://github.com/brianjrmo/bootcamp.git
+<h4>2.4.2 Change access mode</h4>
+To make the volumns accessible, run 2 command before start docker-compose:
 <br>
+chmod 777 -R logs/
+<br>
+chmod 777 -R dags/
+<h4>2.4.3 Start containers</h4>
 start the <a href="https://github.com/brianjrmo/bootcamp/blob/main/docker-compose.yaml">docker-composer.yaml</a> with command: docker-compose up
-<br>
+
 
 <h2>3. Limitation and Rooms of improvement</h2>
 <h3>3.1 docker-compose vs kubernetes</h3>
