@@ -88,5 +88,5 @@ start the <a href="https://github.com/brianjrmo/bootcamp/blob/main/docker-compos
 The docker-compose here is running on a single host with multipul containers. To make the application more resilian to work load changing, can apply k8s as containers orchestration.
 <h3>3.2 OpenAPI</h3>
 Apply OpenAPI to facilate document generation.</h3>
-<h3>3.3 Create docker image first.</h3>
-The docker-compose.yaml use 2 ways to create container: from a dockerfile and existing image. This is for the purpose of showing 2 alternatives to start container. It's more efficient to create image first then the container can import directly.</h3>
+<h3>3.3 Create docker image first</h3>
+The docker-compose.yaml use 2 ways to create container: from a dockerfile and existing image. This is for the purpose of showing 2 alternatives to start container. However, it will be more efficient to create image first then the container can import directly.</h3>
