@@ -1,0 +1,22 @@
+(base) D:\bootcamp\scripts\restapi>pylint app.py
+
+--------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
+
+
+(base) D:\bootcamp\scripts\restapi>pylint app_test.py
+
+--------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
+
+
+(base) D:\bootcamp\scripts\restapi>pylint manage_user.py
+
+--------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
+
+
+(base) D:\bootcamp\scripts\restapi>pylint user_management.py
+
+--------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)

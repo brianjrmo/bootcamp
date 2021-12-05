@@ -11,7 +11,7 @@ In this bootcamp practise excercise, I develop an application that keep track of
 </ul>
 
 <h2>2. Application Design</h2>
-The application consists of 3 components: Database, RestFul API, Airflow
+The application consists of 3 components: Database, RESTful API, Airflow
 <h3>2.1 Database</h3>
 Use MySQL as dabtabase. It has a usertable containing id, name, status, latest_action(datetime).
 <br>
@@ -19,8 +19,8 @@ The table records all users which have ever been created. 'DELETED' user still r
 <br>
 Active(non-deleted) users are unique, we can not create a user with same name as existing active user.
 <br>
-<h3>2.2 RestFul API</h3>
-RestFul API provide operations on individual user, this implement functionality from 1.1 to 1.4.
+<h3>2.2 RESTful API</h3>
+RESTful API provide operations on individual user, this implement functionality from 1.1 to 1.4.
 <br>
 API list:
 <table>
@@ -68,7 +68,7 @@ API list:
   </tr>
 </table>
 <br>
-There's a CLI utility call RestFul API to carry out user management task. To run the utility:
+There's a CLI utility call RESTful API to carry out user management task. To run the utility:
 <br>
 Get all files from <a href="https://github.com/brianjrmo/bootcamp/tree/main/scripts/restapi">restapi</a>.
 <br>
@@ -77,3 +77,15 @@ Run this command to check usage: python manage_user.py --help
 <h3>2.3 Airflow</h3>
 A DAG user_status_dag run every 5 minutes to extract up-to-date user status information from usertable. Create a csv file in docker host home under logs/ folder.
 
+<h3>2.4 Two steps to start the application</h3>
+Download source from https://github.com/brianjrmo/bootcamp.git
+<br>
+start the <a href="https://github.com/brianjrmo/bootcamp/blob/main/docker-compose.yaml">docker-composer.yaml</a> with command: docker-compose up
+<br>
+
+<h2>3. Limitation and Rooms of improvement</h2>
+3.1 The docker-compose here is running on a single host with multipul containers. To make the application more resilian to work load changing, can apply k8s as containers orchestration.
+<br>
+3.2 Apply OpenAPI to facilate document generation.
+<br>
+3.3 The docker-compose.yaml demo 2 ways to create container: from a Dockerfile and existing image. This is for the purpose of showing 2 alternatives to start container. It's more efficient to create image first then the container can import directly.
