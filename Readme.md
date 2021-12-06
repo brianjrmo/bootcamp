@@ -11,7 +11,8 @@ In this bootcamp practise excercise, I develop an application that keep track of
 </ul>
 
 <h2>2. Application Design</h2>
-The application consists of 3 components: Database, RESTful API, Airflow
+The application consists of 3 components: Database, RESTful API, Airflow. 3 components are running in containers which are organized by docker-compose.
+
 <h3>2.1 Database</h3>
 Use MySQL as dabtabase. It has a usertable containing id, name, status, latest_action(datetime).
 <br>
