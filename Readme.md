@@ -92,11 +92,9 @@ To make the volumns accessible, run 2 command before start docker-compose:
 start the <a href="https://github.com/brianjrmo/bootcamp/blob/main/docker-compose.yaml">docker-composer.yaml</a> with command: <code>docker-compose up</code>
 
 <h3>3.2 Run from CLI</h3>
-There's a CLI utility call RESTful API to carry out user management task. To run the utility:
+There's a CLI utility call RESTful API to carry out user management task, it apply python click in manage_user.py to bueatify help and paramenter reminder. To run the utility:
 <br>
 Get all files from <a href="https://github.com/brianjrmo/bootcamp/tree/main/scripts/restapi">restapi</a>.
-<br>
-Apply python click in manage_user.py to bueatify help and paramenter reminder.
 <br>
 Run this command to check usage: <code>python manage_user.py --help</code>
 
