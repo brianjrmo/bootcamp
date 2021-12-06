@@ -33,7 +33,7 @@ API list:
   <tr>
     <td>Get number of active users</td>
     <td>http://(hostname):5000</td>
-    <td>There are <n> user(s).</td>
+    <td>There are (n) user(s).</td>
     <td>There is no user.</td>
   </tr>
   <tr>
