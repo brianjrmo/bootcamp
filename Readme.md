@@ -85,9 +85,9 @@ Download source from https://github.com/brianjrmo/bootcamp.git
 <h4>3.1.2 Change access mode</h4>
 To make the volumns accessible, run 2 command before start docker-compose:
 <br>
-chmod 777 -R logs/
+<code>chmod 777 -R logs/</code>
 <br>
-chmod 777 -R dags/
+<code>chmod 777 -R dags/</code>
 <h4>3.1.3 Start containers</h4>
 start the <a href="https://github.com/brianjrmo/bootcamp/blob/main/docker-compose.yaml">docker-composer.yaml</a> with command: docker-compose up
 
@@ -96,12 +96,14 @@ There's a CLI utility call RESTful API to carry out user management task. To run
 <br>
 Get all files from <a href="https://github.com/brianjrmo/bootcamp/tree/main/scripts/restapi">restapi</a>.
 <br>
-Run this command to check usage: python manage_user.py --help
+Apply python click in manage_user.py to bueatify help and paramenter reminder.
+<br>
+Run this command to check usage: <code>python manage_user.py --help</code>
 
 <h3>3.3 Run unittest</h3>
 Get all files from <a href="https://github.com/brianjrmo/bootcamp/tree/main/scripts/restapi">restapi</a>.
 <br>
-Run this command to run app_test.py: pytest
+Run this command to run app_test.py: <code>pytest</code>
 
 <h2>4. Limitation and Rooms of improvement</h2>
 <h3>4.1 docker-compose vs kubernetes</h3>
