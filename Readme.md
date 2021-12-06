@@ -89,7 +89,7 @@ To make the volumns accessible, run 2 command before start docker-compose:
 <br>
 <code>chmod 777 -R dags/</code>
 <h4>3.1.3 Start containers</h4>
-start the <a href="https://github.com/brianjrmo/bootcamp/blob/main/docker-compose.yaml">docker-composer.yaml</a> with command: docker-compose up
+start the <a href="https://github.com/brianjrmo/bootcamp/blob/main/docker-compose.yaml">docker-composer.yaml</a> with command: <code>docker-compose up</code>
 
 <h3>3.2 Run from CLI</h3>
 There's a CLI utility call RESTful API to carry out user management task. To run the utility:
