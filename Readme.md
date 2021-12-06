@@ -69,12 +69,6 @@ API list:
   </tr>
 </table>
 <br>
-There's a CLI utility call RESTful API to carry out user management task. To run the utility:
-<br>
-Get all files from <a href="https://github.com/brianjrmo/bootcamp/tree/main/scripts/restapi">restapi</a>.
-<br>
-Run this command to check usage: python manage_user.py --help
-<br>
 <h3>2.3 Airflow</h3>
 Airflow will map 2 volumns from host to container, host folders are:
 <br>
@@ -84,23 +78,35 @@ Airflow will map 2 volumns from host to container, host folders are:
 <br>
 A DAG user_status_dag run every 5 minutes to extract up-to-date user status information from usertable. The created report(a csv file) also save in logs/ folder. This implement function 1.5.
 
-<h3>2.4 Three steps to start the application</h3>
-<h4>2.4.1 Download source</h4>
+<h2>3 To run the application</h2>
+<h3>3.1 Three steps to start the application</h3>
+<h4>3.1.1 Download source</h4>
 Download source from https://github.com/brianjrmo/bootcamp.git
-<h4>2.4.2 Change access mode</h4>
+<h4>3.1.2 Change access mode</h4>
 To make the volumns accessible, run 2 command before start docker-compose:
 <br>
 chmod 777 -R logs/
 <br>
 chmod 777 -R dags/
-<h4>2.4.3 Start containers</h4>
+<h4>3.1.3 Start containers</h4>
 start the <a href="https://github.com/brianjrmo/bootcamp/blob/main/docker-compose.yaml">docker-composer.yaml</a> with command: docker-compose up
 
+<h3>3.2 Run from CLI</h3>
+There's a CLI utility call RESTful API to carry out user management task. To run the utility:
+<br>
+Get all files from <a href="https://github.com/brianjrmo/bootcamp/tree/main/scripts/restapi">restapi</a>.
+<br>
+Run this command to check usage: python manage_user.py --help
 
-<h2>3. Limitation and Rooms of improvement</h2>
-<h3>3.1 docker-compose vs kubernetes</h3>
+<h3>3.3 Run unittest</h3>
+Get all files from <a href="https://github.com/brianjrmo/bootcamp/tree/main/scripts/restapi">restapi</a>.
+<br>
+Run this command to run app_test.py: pytest
+
+<h2>4. Limitation and Rooms of improvement</h2>
+<h3>4.1 docker-compose vs kubernetes</h3>
 The docker-compose here is running on a single host with multipul containers. To make the application more resilian to work load changing, can apply k8s as containers orchestration.
-<h3>3.2 OpenAPI</h3>
+<h3>4.2 OpenAPI</h3>
 Apply OpenAPI to facilate document generation.</h3>
-<h3>3.3 Create docker image first</h3>
+<h3>4.3 Create docker image first</h3>
 The docker-compose.yaml use 2 ways to create container: from a dockerfile and existing image. This is for the purpose of showing 2 alternatives to start container. However, it will be more efficient to create image first then the container can import directly.</h3>
